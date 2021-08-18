@@ -43,4 +43,10 @@ johnBMI = johnMass / johnHeight ** 2;
 markHigherBMI = markBMI > johnBMI;
 
 console.log(markBMI, johnBMI, markHigherBMI);
+
+const firstName = `Brendan`;
+const lastName = `Madden`;
+
+const templateLiteral = `Hi, I'm ${firstName} ${lastName}. I use back ticks for all of my strings.`;
+console.log(templateLiteral);
 */
