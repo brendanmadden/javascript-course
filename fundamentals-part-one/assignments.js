@@ -49,4 +49,11 @@ const lastName = `Madden`;
 
 const templateLiteral = `Hi, I'm ${firstName} ${lastName}. I use back ticks for all of my strings.`;
 console.log(templateLiteral);
+
+if (markBMI > johnBMI) {
+  console.log(`Mark's BMI ${markBMI} is greater that John's BMI ${johnBMI}`);
+} else {
+  console.log(`John's BMI ${johnBMI} is greater than Mark's BMI ${markBMI}`);
+}
+
 */
