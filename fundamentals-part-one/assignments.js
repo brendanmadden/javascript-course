@@ -8,6 +8,8 @@ year is an undefined variable type, and it's value is undefined.
 - There is a legacy bug in the browser that defines typeof null as an object, but this is not correct.
 - Use const as much as you can, unless you KNOW that you're going to change the variable value. 
 
+- You can use conditional statements in template literals
+
 // Assignments
 
 let country = "Canada";
@@ -54,6 +56,49 @@ if (markBMI > johnBMI) {
   console.log(`Mark's BMI ${markBMI} is greater that John's BMI ${johnBMI}`);
 } else {
   console.log(`John's BMI ${johnBMI} is greater than Mark's BMI ${markBMI}`);
+}
+
+
+Challenge 3
+
+let dolphinsAvg = (96 + 108 + 89) / 3;
+let koalasAvg = (88 + 91 + 110) / 3;
+
+if (dolphinsAvg > koalasAvg) {
+  console.log(`Dolphins Win!`);
+} else if (koalasAvg > dolphinsAvg) {
+  console.log(`Koala's Win!`);
+} else {
+  console.log(`It's a tie.`);
+}
+
+
+let dolphinsAvg = (97 + 112 + 101) / 3;
+let koalasAvg = (109 + 95 + 123) / 3;
+
+if (dolphinsAvg > koalasAvg && dolphinsAvg > 100) {
+  console.log(`Dolphins Win!`);
+} else if (koalasAvg > dolphinsAvg && koalasAvg > 100) {
+  console.log(`Koala's Win!`);
+  console.log(koalasAvg);
+} else {
+  console.log(`It's a tie.`);
+}
+
+
+
+let dolphinsAvg = (97 + 112 + 101) / 3;
+let koalasAvg = (109 + 95 + 106) / 3;
+
+if (dolphinsAvg > koalasAvg && dolphinsAvg > 100) {
+  console.log(`Dolphins Win!`);
+  console.log(dolphinsAvg);
+} else if (koalasAvg > dolphinsAvg && koalasAvg > 100) {
+  console.log(`Koala's Win!`);
+  console.log(koalasAvg);
+} else {
+  console.log(`It's a tie.`);
+  console.log(dolphinsAvg, koalasAvg);
 }
 
 */
