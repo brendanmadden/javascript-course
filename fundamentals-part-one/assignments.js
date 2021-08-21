@@ -101,4 +101,19 @@ if (dolphinsAvg > koalasAvg && dolphinsAvg > 100) {
   console.log(dolphinsAvg, koalasAvg);
 }
 
+
+let age = 13;
+console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+
+
+
+// Tip Calculator
+let cost = 705;
+let tip = cost < 50 || cost > 300 ? cost * 0.2 : cost * 0.15;
+console.log(
+  `The bill is $${cost}.00. The tip is $${tip}.00. The total cost is $${
+    tip + cost
+  }.00`
+);
+
 */
