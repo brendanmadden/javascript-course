@@ -66,9 +66,68 @@ const brendan = {
   birthYear: 1991,
   job: "frontend",
   calcAge: function () {
-    return 2021 - this.birthYear;
+    this.age = 2021 - this.birthYear;
+    return this.age;
   },
 };
 
 console.log(brendan.calcAge());
+
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+console.log(
+  `John's BMI (${john.calcBMI()}) is ${
+    john.calcBMI() > mark.calcBMI() ? "higher" : "lower"
+  } than Mark's BMI (${mark.calcBMI()})`
+);
+
+
+use the continue keyword to skip an iteration in a loop
+
+
+
+const brendan = ["Brendan", "Madden", 1991, "frontend"];
+
+for (let i = 0; i < brendan.length; i++) {
+  if (typeof brendan[i] !== "string") continue;
+  console.log(brendan[i], typeof brendan[i]);
+}
+
+break will terminate the loop once the value is found
+
+
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+
+const calcTip = (bill) => (bill > 300 || bill < 50 ? bill * 0.2 : bill * 0.15);
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(tips[i] + bills[i]);
+}
+
+console.log(totals, tips);
+
 */
