@@ -130,4 +130,13 @@ for (let i = 0; i < bills.length; i++) {
 
 console.log(totals, tips);
 
+
+
+const printForcast = function (arr) {
+  console.log(
+    `It will be ${arr[0]} degrees in 1 day, ${arr[1]} in 2 days......`
+  );
+};
+
+printForcast([17, 21, 23]);
 */
