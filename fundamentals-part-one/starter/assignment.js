@@ -39,7 +39,7 @@ if (markBMI > johnBMI) {
   console.log(`John's BMI of ${johnBMI} is higher than Mark's`);
 }
 
-*/
+
 
 // Coding Challenge #3
 
@@ -59,3 +59,18 @@ if (avgDolphins > avgKoalas && avgDolphins >= 100) {
 } else {
   console.log(`Nobody wins because the avg score is below 100`);
 }
+
+
+
+let language = `mandarin`;
+
+switch (language) {
+  case `english`:
+    console.log(`3rd place`);
+    break;
+  case `chinese`:
+  case `mandarin`:
+    console.log(`MOST`);
+}
+
+*/
