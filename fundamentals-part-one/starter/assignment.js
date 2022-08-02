@@ -73,4 +73,17 @@ switch (language) {
     console.log(`MOST`);
 }
 
+
+
+// Coding Challenge #4
+
+let bill = 500;
+
+let tip = bill < 50 || bill > 300 ? bill * 0.2 : bill * 0.15;
+
+console.log(
+  `The bill was ${bill}, the tip was ${tip} and the total is ${bill + tip}`
+);
+
+
 */
