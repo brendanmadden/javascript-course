@@ -85,4 +85,19 @@ console.log(
   `The bill was ${bill}, the tip was ${tip} and the total is ${bill + tip}`
 );
 
+
+
+let x = 3;
+let y = 4;
+
+y = x;
+
+console.log(y);
+
+x = 7;
+
+y = x;
+
+console.log(y);
+
 */
