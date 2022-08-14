@@ -244,11 +244,8 @@ console.log(neighbours);
 
 //JavaScript Fundamentals Part 2 Coding Challenge #2
 
-const tipCalc = function (bill) {
-  let tip;
-  bill >= 50 && bill <= 300 ? (tip = bill * 0.15) : (tip = bill * 0.2);
-  return tip;
-};
+const tipCalc = (bill) =>
+  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 
 console.log(tipCalc(100));
 console.log(tipCalc(10));
@@ -271,5 +268,27 @@ console.log(totals);
 
 
 
+
+
+const brendan = {
+  firstName: `Brendan`,
+  tipCalc: function tipCalc(bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  },
+  birthYear: 1991,
+  calcAge: function () {
+    return 2022 - this.birthYear;
+  },
+};
+console.log(brendan.tipCalc(100));
+console.log(brendan.calcAge());
+
+// const interestedIn = prompt(
+//  `What would you like to know? firstName, tipCalc, birthYear, or calcAge?`
+// );
+
+// console.log(brendan.interestedIn) wont work
+// console.log(brendan[interestedIn]); will work because the expression will be calculated first in the square brackets
+// alert(brendan[interestedIn]);
 
 */
