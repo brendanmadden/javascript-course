@@ -349,14 +349,69 @@ const john = {
 
 console.log(mark.calcBMI(), john.calcBMI());
 
-const results = `${
-  mark.calcBMI() > john.calcBMI() ? `Mark` : `John`
-} has a higher BMI of ${
-  mark.calcBMI() > john.calcBMI() ? mark.calcBMI() : john.calcBMI()
-} than ${mark.calcBMI() > john.calcBMI() ? `John` : `Mark`} ${
-  mark.calcBMI() > john.calcBMI() ? john.calcBMI() : mark.calcBMI()
+const results = `${mark.BMI > john.BMI ? `Mark` : `John`} has a higher BMI of ${
+  mark.BMI > john.BMI ? mark.BMI : john.BMI
+} than ${mark.BMI > john.BMI ? `John` : `Mark`} ${
+  mark.BMI > john.BMI ? john.BMI : mark.BMI
 }`;
 
 console.log(results);
+console.log(mark, john);
+
+
+
+for (let i = 0; i <= 10; i++) {
+  console.log(i);
+}
+
+for (let line = `#`; line.length <= 10; line += `#`) {
+  console.log(line);
+}
+
+let x = 3;
+
+x += 5;
+
+console.log(x);
+
+
+
+const neighbours = [`Canada`, `USA`, `Mexico`];
+
+for (let i = 0; i < neighbours.length; i++) {
+  console.log(neighbours[i]);
+}
+
+
+
+for (let i = 0; i <= 10; i++) {
+  if (i === 5) {
+    // break;
+    continue;
+  }
+
+  console.log(i);
+}
+
+
+// ********** Loop inside of a loop **********
+
+for (let exercise = 1; exercise <= 5; exercise++) {
+  console.log(`------- STARTING EXERCISE ${exercise} -------`);
+
+  for (let reps = 1; reps <= 5; reps++) {
+    console.log(`         Completed Rep #${reps}`);
+  }
+}
+
+// *******************************************
+
+
+// ********** While Loop **********
+let rep = 1;
+while (rep <= 10) {
+  console.log(rep);
+  rep++;
+}
 
 */
