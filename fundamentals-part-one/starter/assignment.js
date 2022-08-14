@@ -101,3 +101,26 @@ y = x;
 console.log(y);
 
 */
+
+//Coding Challenge #5
+
+const calcAvg = (num1, num2, num3) => (num1 + num2 + num3) / 3;
+
+const averageKoalas = calcAvg(65, 54, 500);
+const averageDolphins = calcAvg(44, 23, 7100);
+
+console.log(averageDolphins, averageKoalas);
+
+const checkWinner = function (averageDolphins, averageKoalas) {
+  if (averageDolphins >= averageKoalas * 2) {
+    console.log(`Dolphins win with ${averageDolphins} points`);
+  } else if (averageKoalas >= averageDolphins * 2) {
+    console.log(`Koalas win with ${averageKoalas} points`);
+  } else if (averageDolphins === averageKoalas) {
+    console.log(`Tie`);
+  } else {
+    console.log(`No Winner`);
+  }
+};
+
+checkWinner(averageDolphins, averageKoalas);
