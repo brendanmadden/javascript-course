@@ -103,7 +103,7 @@ y = x;
 console.log(y);
 
 
-
+//JavaScript Fundamentals Part 2 Coding Challenge #1
 //Coding Challenge #5
 
 const calcAvg = (num1, num2, num3) => (num1 + num2 + num3) / 3;
@@ -233,5 +233,43 @@ console.log(neighbours);
 neighbours.pop();
 
 console.log(neighbours);
+
+
+
+
+
+
+
+
+
+//JavaScript Fundamentals Part 2 Coding Challenge #2
+
+const tipCalc = function (bill) {
+  let tip;
+  bill >= 50 && bill <= 300 ? (tip = bill * 0.15) : (tip = bill * 0.2);
+  return tip;
+};
+
+console.log(tipCalc(100));
+console.log(tipCalc(10));
+console.log(tipCalc(500));
+
+const bills = [125, 555, 44];
+
+const tips = [tipCalc(bills[0]), tipCalc(bills[1]), tipCalc(bills[2])];
+const totals = [
+  tipCalc(bills[0]) + bills[0],
+  tipCalc(bills[1]) + bills[1],
+  tipCalc(bills[2]) + bills[2],
+];
+
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
+
+
+
+
 
 */
