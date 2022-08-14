@@ -242,7 +242,7 @@ console.log(neighbours);
 
 
 
-//JavaScript Fundamentals Part 2 Coding Challenge #2
+// ********** JavaScript Fundamentals Part 2 Coding Challenge #2 **********
 
 const tipCalc = (bill) =>
   bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
@@ -269,19 +269,25 @@ console.log(totals);
 
 
 
-
 const brendan = {
   firstName: `Brendan`,
   tipCalc: function tipCalc(bill) {
     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
   },
   birthYear: 1991,
+  // calcAge: function () {
+  //   return 2022 - this.birthYear; // ********** one example of how *this* is used **********
+  // },
+
   calcAge: function () {
-    return 2022 - this.birthYear;
+    this.age = 2022 - this.birthYear;
+    return this.age;
   },
 };
 console.log(brendan.tipCalc(100));
 console.log(brendan.calcAge());
+console.log(brendan.age);
+console.log(brendan);
 
 // const interestedIn = prompt(
 //  `What would you like to know? firstName, tipCalc, birthYear, or calcAge?`
@@ -290,5 +296,67 @@ console.log(brendan.calcAge());
 // console.log(brendan.interestedIn) wont work
 // console.log(brendan[interestedIn]); will work because the expression will be calculated first in the square brackets
 // alert(brendan[interestedIn]);
+
+
+
+const jonas = {
+  firstName: `Jonas`,
+  job: `teacher`,
+  hasDriversLicense: true,
+  birthYear: 1991,
+
+  calcAge: function () {
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()} year old ${this.job} who ${
+      this.hasDriversLicense
+        ? `has a drivers license.`
+        : `does not have a license.`
+    }`;
+  },
+};
+
+console.log(jonas.getSummary());
+
+
+
+//********** JavaScript Fundamentals Part 2 Coding Challenge #3 **********
+
+const mark = {
+  fullName: `Mark Marksman`,
+  massKGS: 78,
+  heightMTRS: 1.69,
+
+  calcBMI: function () {
+    this.BMI = this.massKGS / this.heightMTRS ** 2;
+    return this.BMI;
+  },
+};
+
+const john = {
+  fullName: `John Johnson`,
+  massKGS: 92,
+  heightMTRS: 1.95,
+
+  calcBMI: function () {
+    this.BMI = this.massKGS / this.heightMTRS ** 2;
+    return this.BMI;
+  },
+};
+
+console.log(mark.calcBMI(), john.calcBMI());
+
+const results = `${
+  mark.calcBMI() > john.calcBMI() ? `Mark` : `John`
+} has a higher BMI of ${
+  mark.calcBMI() > john.calcBMI() ? mark.calcBMI() : john.calcBMI()
+} than ${mark.calcBMI() > john.calcBMI() ? `John` : `Mark`} ${
+  mark.calcBMI() > john.calcBMI() ? john.calcBMI() : mark.calcBMI()
+}`;
+
+console.log(results);
 
 */
