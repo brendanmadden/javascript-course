@@ -46,7 +46,7 @@ Some Useful Array Methods
 - indexOf
 - includes
 
-
+//********* The below calcTip is not correct **********
 
 const calcTip = (bill) => (bill > 300 || bill < 50 ? bill * 0.2 : bill * 0.15);
 
