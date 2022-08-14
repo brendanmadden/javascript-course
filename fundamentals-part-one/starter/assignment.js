@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 
 const country = "Canada";
@@ -160,5 +162,80 @@ const canada2 = percentageOfWorld2(37700000);
 const usa2 = percentageOfWorld2(331000000);
 
 console.log(china2, canada2, usa2);
+
+
+
+//Arrow Function
+
+const percentageOfWorld3 = (population) => (population / 7900000000) * 100;
+
+const china3 = percentageOfWorld3(1441000000);
+const canada3 = percentageOfWorld3(37700000);
+const usa3 = percentageOfWorld3(331000000);
+
+console.log(china3, canada3, usa3);
+
+
+
+const percentageOfWorld3 = (population) => (population / 7900000000) * 100;
+
+const describePopulation = function (country, population) {
+  return `${country} has ${population} people which is about ${percentageOfWorld3(
+    population
+  )} percent of the worlds population`;
+};
+
+const china = describePopulation(`China`, 1441000000);
+const canada = describePopulation(`Canada`, 37700000);
+console.log(china);
+console.log(canada);
+
+
+
+const percentageOfWorld = (population) => (population / 7900000000) * 100;
+
+const populations = [1441000000, 37700000, 331000000, 6000000];
+
+console.log(populations.length === 4);
+
+const percentages = [
+  percentageOfWorld(populations[0]),
+  percentageOfWorld(populations[1]),
+  percentageOfWorld(populations[2]),
+  percentageOfWorld(populations[3]),
+];
+
+console.log(percentages);
+
+
+
+const neighbours = [`Canada`, `USA`, `Mexico`];
+
+neighbours.push(`Utopia`);
+
+console.log(neighbours);
+
+neighbours.pop();
+
+console.log(neighbours);
+
+neighbours.includes(`Germany`)
+  ? console.log(`Maybe a central European Country!`)
+  : console.log(`Probably not in central Europe!`);
+
+neighbours.push(`Germany`);
+
+neighbours.includes(`Germany`)
+  ? console.log(`Maybe a central European Country!`)
+  : console.log(`Probably not in central Europe!`);
+
+neighbours[1] = `United States`;
+
+console.log(neighbours);
+
+neighbours.pop();
+
+console.log(neighbours);
+
 
 */
