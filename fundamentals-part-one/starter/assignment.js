@@ -100,7 +100,7 @@ y = x;
 
 console.log(y);
 
-*/
+
 
 //Coding Challenge #5
 
@@ -124,3 +124,41 @@ const checkWinner = function (averageDolphins, averageKoalas) {
 };
 
 checkWinner(averageDolphins, averageKoalas);
+
+
+
+function describeCountry(country, population, capitalCity) {
+  return `${country} has a population of ${population} and it's Capital City is ${capitalCity}.`;
+}
+
+const canada = describeCountry(`Canada`, 37700000, `Ottawa`);
+const finland = describeCountry(`Finland`, 6000000, `Helsinki`);
+console.log(canada);
+console.log(finland);
+
+//Function Declaration
+
+function percentageOfWorld(population) {
+  return (population / 7900000000) * 100;
+}
+
+const china = percentageOfWorld(1441000000);
+const canada = percentageOfWorld(37700000);
+const usa = percentageOfWorld(331000000);
+
+console.log(china, canada, usa);
+
+
+//Function Expression
+
+const percentageOfWorld2 = function (population) {
+  return (population / 7900000000) * 100;
+};
+
+const china2 = percentageOfWorld2(1441000000);
+const canada2 = percentageOfWorld2(37700000);
+const usa2 = percentageOfWorld2(331000000);
+
+console.log(china2, canada2, usa2);
+
+*/
