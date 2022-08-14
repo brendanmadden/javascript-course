@@ -191,7 +191,6 @@ console.log(china);
 console.log(canada);
 
 
-
 const percentageOfWorld = (population) => (population / 7900000000) * 100;
 
 const populations = [1441000000, 37700000, 331000000, 6000000];
@@ -206,8 +205,6 @@ const percentages = [
 ];
 
 console.log(percentages);
-
-
 
 const neighbours = [`Canada`, `USA`, `Mexico`];
 
@@ -236,6 +233,5 @@ console.log(neighbours);
 neighbours.pop();
 
 console.log(neighbours);
-
 
 */
