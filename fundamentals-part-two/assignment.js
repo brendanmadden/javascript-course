@@ -414,4 +414,80 @@ while (rep <= 10) {
   rep++;
 }
 
+
+
+//********** JavaScript Fundamentals Part 2 Coding Challenge #3 **********
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+let tipCalc = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(tipCalc(bills[i]));
+  totals.push(bills[i] + tips[i]);
+}
+
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
+// ********** BONUS **********
+
+const calcAvg = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  let avg = sum / arr.length;
+  return avg;
+};
+
+console.log(Math.trunc(calcAvg(bills)));
+console.log(Math.trunc(calcAvg(totals)));
+
+
+
+const percentageOfWorld = (population) => (population / 7900000000) * 100;
+
+const populations = [1441000000, 37700000, 331000000, 6000000];
+const percentages = [];
+// for (let i = 0; i < populations.length; i++) {
+//   percentages.push(percentageOfWorld(populations[i]));
+// }
+let i = 0;
+while (i < populations.length) {
+  percentages.push(percentageOfWorld(populations[i]));
+  i++;
+}
+
+console.log(percentages);
+
+// const listOfNeighbours = [
+//   [`Canada`, `Mexico`],
+//   [`Spain`],
+//   [`Norway`, `Sweden`, `Russia`],
+// ];
+
+// for (let i = 0; i < listOfNeighbours.length; i++)
+//   for (let j = 0; j < listOfNeighbours[i].length; j++)
+    console.log(`Neighbour: ${listOfNeighbours[i][j]}`); NOT SURE THIS SOLUTION IS ACCURATE
+
+// Forecast Coding Challenge
+
+const printForecast = function (arr) {
+  let str = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    str += `...${arr[i]} in ${i + 1} days `;
+  }
+  console.log(str);
+};
+
+printForecast([10, 3, 7]);
+
 */
