@@ -483,11 +483,11 @@ const printForecast = function (arr) {
   let str = "";
 
   for (let i = 0; i < arr.length; i++) {
-    str += `...${arr[i]} in ${i + 1} days `;
+    str += `${arr[i]}*C in ${i + 1} days... `;
   }
-  console.log(str);
+  console.log("..." + str);
 };
 
-printForecast([10, 3, 7]);
+printForecast([24, 23, 27]);
 
 */
