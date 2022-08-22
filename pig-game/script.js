@@ -22,11 +22,13 @@ const btnHold = document.querySelector(`.btn--hold`);
 // let activePlayer = 0;
 // let playing = true;
 
+let scores, currentScore, activePlayer, playing;
+
 const init = function () {
-  const scores = [0, 0];
-  let currentScore = 0;
-  let activePlayer = 0;
-  let playing = true;
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
 
   current0Element.textContent = 0;
   current1Element.textContent = 0;
@@ -39,6 +41,7 @@ const init = function () {
   player1Element.classList.remove(`player--active`);
   player0Element.classList.add(`player--active`);
 };
+init();
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -82,7 +85,7 @@ btnHold.addEventListener(`click`, function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
 
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 50) {
       playing = false;
       diceElement.classList.add(`hidden`);
       document
@@ -97,18 +100,18 @@ btnHold.addEventListener(`click`, function () {
   }
 });
 
-btnNew.addEventListener(`click`, function () {
-  current0Element.textContent = 0;
-  current1Element.textContent = 0;
-  score0Element.textContent = 0;
-  score1Element.textContent = 0;
-  player0Element.classList.remove(`player--winner`);
-  player1Element.classList.remove(`player--winner`);
-  player1Element.classList.remove(`player--active`);
-  player0Element.classList.add(`player--active`);
-  // playing = true;
-  // activePlayer = 0;
-  // currentScore = 0;
-  // scores = [0, 0];
-  init();
-});
+btnNew.addEventListener(`click`, init); //{
+// current0Element.textContent = 0;
+// current1Element.textContent = 0;
+// score0Element.textContent = 0;
+// score1Element.textContent = 0;
+// player0Element.classList.remove(`player--winner`);
+// player1Element.classList.remove(`player--winner`);
+// player1Element.classList.remove(`player--active`);
+// player0Element.classList.add(`player--active`);
+// playing = true;
+// activePlayer = 0;
+// currentScore = 0;
+// scores = [0, 0];
+// init();
+//});
