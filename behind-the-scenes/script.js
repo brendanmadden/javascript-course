@@ -72,7 +72,7 @@ MATILDA.calcAge(); // this now points to MATILDA when this is called
 const f = BRENDAN.calcAge;
 f(); // will throw an error undefined as inside of a regular JavaScript function, this value (aka the execution context) is dynamic. The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function. During a simple invocation the value of this equals to the global object (or undefined if the function runs in strict mode).
 
-*/
+
 
 const BRENDAN = {
   firstName: `Brendan`,
@@ -111,3 +111,38 @@ const addExpression = function (a, b) {
 };
 console.log(addExpression(2, 5));
 console.log(addExpression(2, 5, 9, 18, 10));
+
+//Primitive Types
+let lastName = `Williams`;
+let oldLastName = lastName;
+lastName = `Davis`;
+console.log(lastName, oldLastName);
+
+*/
+
+//Reference Types
+const jessica = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = `Davis`; // will change both objects as marriedJessica points to exact jessica object in stack
+
+//Copying Objects
+
+const jessica2 = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+  family: [`Joan`, `Steve`, `Brendan`],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // ** ONLY CREATES A SHALLOW COPY
+jessicaCopy.lastName = `Davis`;
+
+jessicaCopy.family.push(`Mary`);
+jessicaCopy.family.push(`John`);
+
+console.log(jessica2, jessicaCopy);
