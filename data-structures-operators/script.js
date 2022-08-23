@@ -1,4 +1,90 @@
 "use strict";
+/*
+//////////////////////////////////////////////////////////////
+//CODING CHALLENGE 1
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// 1)
+const [players1, players2] = game.players;
+console.log(players1);
+console.log(players2);
+
+// 2)
+const [gkBM, ...BMfieldPlayers] = players1;
+console.log(gkBM);
+console.log(BMfieldPlayers);
+
+// 3)
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// 4)
+//'Thiago', 'Coutinho' and 'Perisic'
+const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+console.log(players1Final);
+
+// 5)
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+// 6)
+const printGoals = function (...str) {
+  console.log(str, `${str.length} goals were scored`);
+};
+printGoals(`brendan`, `steve`, `alex`);
+printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
+printGoals("Davies", "Muller");
+printGoals(...game.scored);
+
+// 7)
+game.odds.team1 > game.odds.team2 &&
+  console.log(`${game.team1} has the higher odds`);
+game.odds.team1 < game.odds.team2 &&
+  console.log(`${game.team2} has the higher odds`);
+
+/////////////////////////////////////////////////////////////////
+*/
 
 // Data needed for a later exercise
 const flights =
@@ -47,7 +133,8 @@ const restaurant = {
   },
 };
 
-///////////////////////////////////////
+/*
+/////////////////////////////////////////////////////////////
 // Logical Assignment Operators
 const rest1 = {
   name: "Capri",
@@ -80,8 +167,8 @@ rest2.owner &&= "<ANONYMOUS>";
 console.log(rest1);
 console.log(rest2);
 
-/*
-///////////////////////////////////////
+
+//////////////////////////////////////////////////////////
 // The Nullish Coalescing Operator
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
@@ -91,7 +178,7 @@ console.log(guests);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
-///////////////////////////////////////
+///////////////////////////////////////////////////////////
 // Short Circuiting (&& and ||)
 console.log("---- OR ----");
 // Use ANY data type, return ANY data type, short-circuiting
@@ -122,7 +209,7 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
 
-////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 // THE REST PATTERN - variables (not values) separated by commas
 
 
@@ -163,7 +250,7 @@ add(...x);
 
 restaurant.orderPizza(`pepperoni`, `cheese`, `peppers`);
 restaurant.orderPizza(`pepperoni`);
-////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 // THE SPREAD OPERATOR - values separated by commas
 
 const arr = [7, 8, 9];
@@ -208,7 +295,7 @@ restaurantCopy.name = `New Name`;
 console.log(restaurant.name);
 console.log(restaurantCopy.name);
 
-////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 //DESTRUCTURING OBJECTS
 
 
@@ -244,7 +331,7 @@ const {
 console.log(o, c);
 */
 /*
-////////////////////////////////////////
+//////////////////////////////////////////////////////////
 // DESTRUCTURING ARRAYS
 const arr = [2, 3, 4];
 
