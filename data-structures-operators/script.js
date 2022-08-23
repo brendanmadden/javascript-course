@@ -34,8 +34,17 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}! Enjoy :)`
+    );
+  },
 };
 
+////////////////////////////////////////////////
+// THE SPREAD OPERATOR
+/*
 const arr = [7, 8, 9];
 const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArray);
@@ -47,9 +56,40 @@ console.log(...newArray); // = writing 1, 2, 7, 8, 9
 const newMenu = [...restaurant.mainMenu, `Gnocci`];
 console.log(newMenu);
 
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join two or more arrays together
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Iterables: Arrays, strings, maps, sets, NOT objects
+const str = `Brendan`;
+const letters = [...str];
+console.log(letters);
+console.log(...str);
+
+//Real World Example
+// const ingredients = [
+//   prompt(`Let's make pasta! Ingredient 1?`),
+//   prompt(`Ingredient 2?`),
+//   prompt(`Ingredient 3?`),
+// ];
+// restaurant.orderPasta(...ingredients);
+
+//Objects - the spread operator works onn objects even though they aren't iterables
+const newRestaurant = { foundedIn: 2025, ...restaurant, founder: `Brendan` };
+console.log(newRestaurant);
+
+// Another way to copy objects - see how when we change the name of the new object, the original doesn't also change, so it's a real copy - a new object
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = `New Name`;
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
+
 ////////////////////////////////////////
 //DESTRUCTURING OBJECTS
-/*
+
 
 restaurant.orderDelivery({
   time: `22:30`,
