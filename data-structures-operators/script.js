@@ -63,6 +63,13 @@ console.log(restaurant.order(2, 0));
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
 
+// NESTED DESTRUCTURING
 const nested = [2, 4, [5, 6]];
-const [i, , j] = nested;
-console.log(i, j);
+// const [i, , j] = nested;
+// console.log(i, j);
+const [i, , [j, k]] = nested; // NESTED DESTRUCTURING
+console.log(i, j, k);
+
+//DEFAULT VALUES
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
