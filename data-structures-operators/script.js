@@ -40,11 +40,132 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}! Enjoy :)`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
-////////////////////////////////////////////////
-// THE SPREAD OPERATOR
+///////////////////////////////////////
+// Logical Assignment Operators
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20,
+  numGuests: 0,
+  // owner: `Brendan`,
+};
+
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi",
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= "<ANONYMOUS>";
+rest2.owner &&= "<ANONYMOUS>";
+
+console.log(rest1);
+console.log(rest2);
+
 /*
+///////////////////////////////////////
+// The Nullish Coalescing Operator
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+///////////////////////////////////////
+// Short Circuiting (&& and ||)
+console.log("---- OR ----");
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log("---- AND ----");
+console.log(0 && "Jonas");
+console.log(7 && "Jonas");
+
+console.log("Hello" && 23 && null && "jonas");
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+////////////////////////////////////////////////
+// THE REST PATTERN - variables (not values) separated by commas
+
+
+//can sort of think of spread as unpack and rest as pack (into an array) - helps a little bit I think
+// 1) Destructuring
+
+//SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+//REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+// 2) Functions
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(2, 3, 5, 7, 9, 2);
+add(2, 3, 5, 7, 9, 2, 5, 6, 7, 9);
+add(2, 3, 5, 7, 9, 2, 5, 6, 7, 9, 300, 500020);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza(`pepperoni`, `cheese`, `peppers`);
+restaurant.orderPizza(`pepperoni`);
+////////////////////////////////////////////////
+// THE SPREAD OPERATOR - values separated by commas
+
 const arr = [7, 8, 9];
 const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArray);
