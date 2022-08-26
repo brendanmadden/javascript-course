@@ -197,6 +197,54 @@ for (const [i, el] of gameEvents) {
 }
 */
 
+/////////////////////////////////////////////////////////////////
+//CODING CHALLENGE 4
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector(`button`).addEventListener(`click`, function () {
+  const text = document.querySelector(`textarea`).value;
+  const rows = text.split("\n");
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split("_");
+    // console.log(`${first}${second}`);
+
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+  }
+});
+
+// const convertNames = function (list) {
+//   let listArr = list.split(`\n`);
+//   for (const [name] of listArr) {
+//     let newNames = name.split(`_`);
+//     let newNames2 = newNames.join(" ").toLowerCase();
+//     //.replace(/ /g, "");
+//     console.log(newNames2);
+//     listArr = newNames2.split(" ");
+//   }
+//   console.log(listArr);
+// };
+
+// convertNames(
+//   "underscore_case \n first_name \n Some_Variable \n calculate_AGE \n delayed_departure"
+// );
+
+// const capitalizeName = function (name) {
+//   const names = name.split(" ");
+//   const namesUpper = [];
+
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(" "));
+// };
 ////////////////////////////////////////////////////
 // Data needed for a later exercise
 const flights =
@@ -249,6 +297,59 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/*
+
+///////////////////////////////////////
+// Working With Strings - Part 2
+
+// Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schmedtmann');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(64637836));
+console.log(maskCreditCard(43378463864647384));
+console.log(maskCreditCard('334859493847755774747'));
+
+// Repeat
+const message2 = 'Bad waether... All Departues Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛩'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
 
 ///////////////////////////////////////
 // Working With Strings - Part 2
@@ -312,7 +413,59 @@ checkBaggage("I have a laptop, some Food and a pocket Knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got some snacks and a gun for protection");
 
-/*
+const symbol = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
+};
+
+console.log(symbol["V"]);
+let result = 0;
+var romanToInt = function (s) {
+  for (let i = 0; i < s.length; i++) {
+    const cur = symbol[s[i]];
+    const next = symbol[s[i + 1]];
+
+    if (cur < next) {
+      result += next - cur; // IV -> 5 - 1 = 4
+      i++;
+    } else {
+      result += cur;
+    }
+  }
+
+  return result;
+};
+
+console.log(romanToInt(`XCII`));
+
+// const nums = new Map();
+// nums.set(`I`, 1);
+// nums.set(`V`, 5);
+// nums.set(`X`, 10);
+// nums.set(`L`, 50);
+// nums.set(`C`, 100);
+// nums.set(`D`, 500);
+// nums.set(`M`, 1000);
+
+// console.log(nums);
+
+// var romanToInt = function (s) {
+//   let tracker;
+//   for (const [key, value] of nums) {
+//     for (let i = 0; i > s.length; i++) {
+//       if (s[i] === key) {
+//         tracker = key;
+//       }
+//     }
+//   }
+// };
+
+
 
 let x = "hello";
 let y = x.split(``).reverse().join("");
