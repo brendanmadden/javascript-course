@@ -312,6 +312,12 @@ checkBaggage("I have a laptop, some Food and a pocket Knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got some snacks and a gun for protection");
 
+/*
+
+let x = "hello";
+let y = x.split(``).reverse().join("");
+console.log(y);
+
 // var isPalindrome = function (x) {
 //   let str1 = x.toString();
 //   let str2 = str1.split(``).reverse().join(``);
@@ -319,7 +325,7 @@ checkBaggage("Got some snacks and a gun for protection");
 // };
 // console.log(isPalindrome(1211213));
 
-/*
+
 ///////////////////////////////////////
 // Working With Strings - Part 1
 const airline = 'TAP Air Portugal';
