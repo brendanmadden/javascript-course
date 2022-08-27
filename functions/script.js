@@ -111,4 +111,30 @@ calc(2, 5, adder);
 calc(2, 5, multiplier);
 calc(2, 5, divider);
 
+
+///////////////////////////////////////
+// Functions Returning Functions
+const greets = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greets("Hey");
+greeterHey("Jonas");
+greeterHey("Steven");
+
+greets("Hello")("Jonas");
+
+// Challenge
+const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+greetArr("Hi")("Jonas");
+
+const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+const hello = greet(`Hello`);
+hello(`Brendan`);
+greet(`Hi`)(`Jonas`);
+
 */
