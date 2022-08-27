@@ -267,6 +267,48 @@ const poll = {
   options: [`0: JavaScript`, `1: Python`, `2: Rust`, `3: C++`],
   //The below generates a new array [0, 0, 0, 0]
   answers: new Array(4).fill(0),
+
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join(`\n`)}\n(Write option number)`
+      )
+    );
+    console.log(answer);
+
+    //Short circuiting with the && operator - if everything is true it will execute the last expression (this.answers[answer]++ in this case)
+    typeof answer === `number` &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+
+    //console.log(this.answers);
+    this.displayResults();
+    this.displayResults(`string`);
+  },
+
+  displayResults(type = `array`) {
+    if (type === `array`) {
+      console.log(this.answers);
+    } else if (type === `string`) {
+      console.log(`Poll results are ${this.answers.join(`, `)}`);
+    }
+  },
 };
 
-prompt(`hello`);
+// poll.registerNewAnswer();
+
+document
+  .querySelector(`.poll`)
+  .addEventListener(`click`, poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] });
+poll.displayResults.call({ answers: [5, 2, 3] }, "string");
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+// [5, 2, 3]
+// [1, 5, 3, 9, 6, 1]
+
+// Test data for bonus:
+// § Data1:[5,2,3]
+// § Data2:[1,5,3,9,6,1]
