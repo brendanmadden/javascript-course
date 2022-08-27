@@ -257,7 +257,6 @@ const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
 
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -312,3 +311,44 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 // Test data for bonus:
 // § Data1:[5,2,3]
 // § Data2:[1,5,3,9,6,1]
+
+
+///////////////////////////////////////
+// Immediately Invoked Function Expressions (IIFE)
+const runOnce = function () {
+  console.log("This will never run again");
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log("This will never run again");
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log("This will ALSO never run again"))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+// console.log(isPrivate);
+console.log(notPrivate);
+
+*/
+
+// Closure makes a function remember everything (variables) that existed at it's birthplace (at the time it was created)
+// 👉 A function has access to the variable environment(VE) of the execution context in which it was created
+// 👉 Closure: VE attached to the function, exactly as it was at the time and place the function was created
+
+// A closure is the closed-over variable environment of the execution context in which a function was created, even aftert hat execution context is gone;
+
+// A closure gives a function access to all the variables of its parent function, even after that parent function has returned.The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+
+// A closure makes sure that a function doesn’t lose connection to variables that existed at the function’s birthplace;
+
+// A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created.
+
+// We do NOT have to manually create closures, this is a JavaScript feature that happens automatically. We can’t even access closed-over variables explicitly. A closure is NOT a tangible JavaScript object.
