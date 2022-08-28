@@ -62,6 +62,8 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 const displayMovements = function (movements) {
+  containerMovements.innerHTML = ``;
+
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? `deposit` : `withdrawal`;
 
@@ -202,4 +204,64 @@ currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
 
+
+///////////////////////////////////////
+// Coding Challenge #1
+
+// Test data:
+// § Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data[4, 1, 15, 8, 3]
+// § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data[10, 5, 6, 1, 4]
+
+// const juliaData1 = [3, 5, 2, 12, 7];
+// const kateData1 = [4, 1, 15, 8, 3];
+const juliaData1 = [9, 16, 6, 8, 3];
+const kateData1 = [10, 5, 6, 1, 4];
+
+const checkDogs = function (juliaData, kateData) {
+  const juliaData1Copy = juliaData.slice();
+  console.log(juliaData1Copy);
+  const juliaSplice1 = juliaData1Copy.splice(1).splice(0, 2);
+  // const correctedBoth = [...juliaSplice1, ...kateData];
+  const correctedBoth = juliaSplice1.concat(kateData);
+  console.log(correctedBoth);
+
+  correctedBoth.forEach(function (age, i) {
+    if (age >= 3) {
+      console.log(
+        `Dog number ${i + 1} is an adult good boy and is ${age} years young! 🐶`
+      );
+    } else {
+      console.log(
+        `Dog number ${i} is a good boy little puppy and is ${age} years young! 🐶`
+      );
+    }
+  });
+};
+checkDogs(juliaData1, kateData1);
+
 */
+
+///////////////////////////////////////
+// The map Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return Math.trunc(mov * eurToUsd);
+// });
+
+const movementsUSD = movements.map((mov) => Math.trunc(mov * eurToUsd));
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsDescriptions = movements.map((mov, i, arr) => {
+  if (mov > 0) {
+    return `Movement ${i + 1}: You deposited ${mov}`;
+  } else {
+    return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  }
+});
+console.log(movementsDescriptions);
