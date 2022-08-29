@@ -81,6 +81,36 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(` `)
+      .map((name) => name[0])
+      .join(``);
+  });
+};
+createUsernames(accounts);
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -239,7 +269,6 @@ const checkDogs = function (juliaData, kateData) {
 };
 checkDogs(juliaData1, kateData1);
 
-*/
 
 ///////////////////////////////////////
 // The map Method
@@ -265,15 +294,44 @@ const movementsDescriptions = movements.map(
 );
 console.log(movementsDescriptions);
 
-const createUsernames = function (user) {
-  const username = user
-    .toLowerCase()
-    .split(` `)
-    .map((name) => name[0])
-    .join(``);
-  return username;
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(` `)
+      .map((name) => name[0])
+      .join(``);
+  });
 };
 
 // const user = `Steven Thomas Williams`;
 
-console.log(createUsernames(`Steven Thomas Williams`));
+createUsernames(accounts);
+console.log(accounts);
+
+*/
+
+///////////////////////////////////////
+// The filter Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// const withdrawals = movements.filter((mov) => mov < 0);
+// console.log(deposits, withdrawals);
+
+const accountsBalance = movements.reduce(function (accumulator, curr, i, arr) {
+  console.log(`${i} ${accumulator}`);
+  return accumulator + curr;
+}, 0);
+// console.log(accountBalance);
+
+// accumulator -> SNOWBALL
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(accountsBalance);
