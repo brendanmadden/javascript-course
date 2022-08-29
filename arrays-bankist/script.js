@@ -264,3 +264,16 @@ const movementsDescriptions = movements.map(
     )}`
 );
 console.log(movementsDescriptions);
+
+const createUsernames = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(` `)
+    .map((name) => name[0])
+    .join(``);
+  return username;
+};
+
+// const user = `Steven Thomas Williams`;
+
+console.log(createUsernames(`Steven Thomas Williams`));
