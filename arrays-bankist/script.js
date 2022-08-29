@@ -81,6 +81,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -335,3 +341,11 @@ const accountsBalance = movements.reduce(function (accumulator, curr, i, arr) {
 // }, 0);
 // const balance = movements.reduce((acc, cur) => acc + cur, 0);
 console.log(accountsBalance);
+
+const check = movements.reduce(function (acc, mov, i, arr) {
+  if (mov > acc) {
+    acc = mov;
+  }
+  return acc;
+}, movements[0]);
+console.log(check);
