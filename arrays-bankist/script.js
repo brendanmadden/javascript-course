@@ -885,43 +885,36 @@ console.log(
 );
 
 // 3
-const dogsEatTooMuch = dogs.filter(
-  (val, i, arr) => val.curFood > val.recommendedFood
-);
+const dogsEatTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
 console.log(dogsEatTooMuch);
-const dogsEatTooLittle = dogs.filter(
-  (val, i, arr) => val.curFood < val.recommendedFood
-);
+const dogsEatTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recommendedFood)
+  .flatMap((dog) => dog.owners);
 console.log(dogsEatTooLittle);
 
-const ownersDogsEatTooMuch = dogsEatTooMuch.flatMap((dog) => dog.owners);
-console.log(ownersDogsEatTooMuch);
-const ownersDogsEatTooLittle = dogsEatTooLittle.flatMap((dog) => dog.owners);
-console.log(ownersDogsEatTooLittle);
+// const ownersDogsEatTooMuch = dogsEatTooMuch.flatMap((dog) => dog.owners);
+// console.log(ownersDogsEatTooMuch);
+// const ownersDogsEatTooLittle = dogsEatTooLittle.flatMap((dog) => dog.owners);
+// console.log(ownersDogsEatTooLittle);
 
 // 4
-console.log(`${ownersDogsEatTooMuch.join(` and `)}'s dog's eat too much!`);
-console.log(`${ownersDogsEatTooLittle.join(` and `)}'s dog's eat too little!`);
+console.log(`${dogsEatTooMuch.join(` and `)}'s dog's eat too much!`);
+console.log(`${dogsEatTooLittle.join(` and `)}'s dog's eat too little!`);
 
 // 5
 console.log(dogs.some((val) => val.curFood === val.recommendedFood));
 
 // 6
-console.log(
-  dogs.some((val) =>
-    val.curFood < val.recommendedFood * 1.1 &&
-    val.curFood > val.recommendedFood * 0.9
-      ? true
-      : false
-  )
-);
+const okayRange = (val) =>
+  val.curFood < val.recommendedFood * 1.1 &&
+  val.curFood > val.recommendedFood * 0.9;
+
+console.log(dogs.some(okayRange));
 
 // 7
-let okayDogs = dogs.filter(
-  (val) =>
-    val.curFood < val.recommendedFood * 1.1 &&
-    val.curFood > val.recommendedFood * 0.9
-);
+let okayDogs = dogs.filter(okayRange);
 console.log(okayDogs);
 
 // 8
