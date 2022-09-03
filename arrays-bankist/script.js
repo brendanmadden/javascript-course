@@ -719,7 +719,7 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 console.log(movements);
 
-*/
+
 
 ///////////////////////////////////////
 // More Ways of Creating and Filling Arrays
@@ -751,3 +751,24 @@ const randomDiceRolls = Array.from(
   () => Math.trunc(Math.random() * 6) + 1
 );
 console.log(randomDiceRolls);
+
+*/
+
+var twoSum = function (nums, target) {
+  let output = [];
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      console.log(nums[i], nums[j]);
+      if (nums[i] + nums[j] === target) {
+        output.push(i, j);
+        return output;
+      }
+    }
+  }
+};
+
+twoSum([2, 7, 11, 15], 9);
+
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
