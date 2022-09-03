@@ -752,7 +752,7 @@ const randomDiceRolls = Array.from(
 );
 console.log(randomDiceRolls);
 
-*/
+
 
 var twoSum = function (nums, target) {
   let output = [];
@@ -772,3 +772,42 @@ twoSum([2, 7, 11, 15], 9);
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+
+
+// O(n) => the below is much faster than the above
+var twoSum = function (nums, target) {
+  var map = {};
+  for (var i = 0; i < nums.length; i++) {
+    var n = nums[i];
+    console.log(map[target - n]);
+    if (map[target - n] >= 0) {
+      return [map[target - n], i];
+    } else {
+      map[n] = i; //use map to store the value and index position
+    }
+  }
+};
+console.log(twoSum([2, 7, 11, 15], 9));
+
+*/
+
+///////////////////////////////////////
+// Array Methods Practice
+
+// 1.
+const bankDepositSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
+// 2.
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+
+const numDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0); // ++ before the value returns the incremented or decremented value. ++ after the value (as we used to always see it) increments or decrements the value, but returns the previous value.
