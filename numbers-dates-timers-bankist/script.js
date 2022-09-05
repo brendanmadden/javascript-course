@@ -416,8 +416,10 @@ console.log(11n / 3n);
 console.log(10 / 3);
 
 
-//Linear Search - O(n) time complexity - Linear Time
+//Linear Search - O(n) time complexity - Linear Time - O(1) Space Complexity - Constant Space (no additional space is required than the initial variables as n increases in size)
+
 const LINEAR_SEARCH = function (list, target) {
+
   // returns the index position of the target if found, else returns -1
 
   for (let i = 0; i < list.length; i++) {
@@ -430,7 +432,9 @@ const LINEAR_SEARCH = function (list, target) {
 console.log(LINEAR_SEARCH([1, 5, 7, 8, 4, 13, 18], 7));
 
 
-//Binary Search - O(log n) time complexity - Logorithmic Time
+
+//Binary Search - O(log n) time complexity - Logarithmic Time - O(1) Space Complexity - Constant Space (no additional space is required than the initial variables as n increases in size)
+
 const BINARY_SEARCH = function (list, target) {
   let first = 0;
   let last = list.length - 1;
