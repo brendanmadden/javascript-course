@@ -415,5 +415,19 @@ console.log(huge + " is REALLY big!!!");
 console.log(11n / 3n);
 console.log(10 / 3);
 */
+
+//Linear Search
+const LINEAR_SEARCH = function (list, target) {
+  // returns the index position of the target if found, else returns -1
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] == target) {
+      return i;
+    }
+  }
+  return -1;
+};
+console.log(LINEAR_SEARCH([1, 5, 7, 8, 4, 13, 18], 7));
+
 ///////////////////////////////////////
 // Creating Dates
