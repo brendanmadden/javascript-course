@@ -284,14 +284,16 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 5000);
   }
   inputLoanAmount.value = "";
 });
@@ -618,6 +620,55 @@ console.log(
   new Intl.NumberFormat(navigator.language, options).format(num)
 );
 
-*/
+
 ///////////////////////////////////////
 // Timers
+
+// setTimeout
+const ingredients = ["olives", "spinach"];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`),
+  3000,
+  ...ingredients
+);
+console.log("Waiting...");
+
+if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
+
+// // setInterval
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
+
+
+
+setInterval(function () {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const sec = now.getSeconds();
+
+  // console.log(`${hour}:${minute}:${sec}`);
+}, 1000);
+
+
+
+setInterval(function () {
+  const now = new Date();
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    second: `numeric`,
+    // day: "numeric",
+    // month: "numeric",
+    // year: "numeric",
+    // weekday: 'long',
+  };
+  console.log(new Intl.DateTimeFormat(`en-US`, options).format(now));
+}, 1000);
+// const locale = navigator.language;
+// console.log(locale);
+
+
+*/
