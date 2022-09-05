@@ -414,9 +414,9 @@ console.log(huge + " is REALLY big!!!");
 // Divisions
 console.log(11n / 3n);
 console.log(10 / 3);
-*/
 
-//Linear Search
+
+//Linear Search - O(n) time complexity - Linear Time
 const LINEAR_SEARCH = function (list, target) {
   // returns the index position of the target if found, else returns -1
 
@@ -428,6 +428,28 @@ const LINEAR_SEARCH = function (list, target) {
   return -1;
 };
 console.log(LINEAR_SEARCH([1, 5, 7, 8, 4, 13, 18], 7));
+
+*/
+
+//Binary Search
+
+const BINARY_SEARCH = function (list, target) {
+  let first = 0;
+  let last = list.length - 1;
+
+  while (first <= last) {
+    let midpoint = Math.floor((first + last) / 2);
+    if (list[midpoint] === target) {
+      return midpoint;
+    } else if (list[midpoint] < target) {
+      first = midpoint + 1;
+    } else {
+      last = midpoint - 1;
+    }
+  }
+  return -1;
+};
+console.log(BINARY_SEARCH([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 17));
 
 ///////////////////////////////////////
 // Creating Dates
