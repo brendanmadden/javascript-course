@@ -429,10 +429,8 @@ const LINEAR_SEARCH = function (list, target) {
 };
 console.log(LINEAR_SEARCH([1, 5, 7, 8, 4, 13, 18], 7));
 
-*/
 
-//Binary Search
-
+//Binary Search - O(log n) time complexity - Logorithmic Time
 const BINARY_SEARCH = function (list, target) {
   let first = 0;
   let last = list.length - 1;
@@ -450,6 +448,24 @@ const BINARY_SEARCH = function (list, target) {
   return -1;
 };
 console.log(BINARY_SEARCH([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 17));
+
+*/
+
+const RECURSIVE_BINARY_SEARCH = function (list, target) {
+  if (list.length === 0) return false;
+  else {
+    let midpoint = Math.floor(list.length / 2);
+    if (list[midpoint] == target) return true;
+    else {
+      if (list[midpoint] < target) {
+        return RECURSIVE_BINARY_SEARCH(list.slice(midpoint + 1), target);
+      } else {
+        return RECURSIVE_BINARY_SEARCH(list.slice(0, midpoint), target);
+      }
+    }
+  }
+};
+console.log(RECURSIVE_BINARY_SEARCH([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
 
 ///////////////////////////////////////
 // Creating Dates
