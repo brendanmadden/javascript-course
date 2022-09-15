@@ -204,3 +204,23 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+class Testcar {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  newCar() {
+    console.log(`Here is your new ${this.year} ${this.make} ${this.model}`);
+  }
+}
+
+const bmw = new Testcar(`BMW`, `M3`, `2023`);
+const mercedes = new Testcar(`Mercedes`, `AMG S Class`, `2023`);
+const audi = new Testcar(`Audi`, `R8`, `2023`);
+
+bmw.newCar();
+mercedes.newCar();
+audi.newCar();
