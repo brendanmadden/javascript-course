@@ -220,7 +220,9 @@ class Testcar {
 const bmw = new Testcar(`BMW`, `M3`, `2023`);
 const mercedes = new Testcar(`Mercedes`, `AMG S Class`, `2023`);
 const audi = new Testcar(`Audi`, `R8`, `2023`);
+const rolls = new Testcar(`Rolls Royce`, `Ghost`, `2023`);
 
 bmw.newCar();
 mercedes.newCar();
 audi.newCar();
+rolls.newCar();
