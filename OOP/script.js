@@ -12,7 +12,12 @@ const Person = function (firstName, birthYear) {
   //   this.calcAge = function () {
   //     console.log(2037 - this.birthYear);
   //   };
+
+  Person.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this);
 };
+Person.hey(); // This is an example of a static method
 
 const brendan = new Person(`Brendan`, 1991);
 console.log(brendan);
@@ -140,6 +145,8 @@ class PersonClass {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
+
+  // Instance Methods
   // These methods go onto PersonClass.prototype (.prototype property of PersonClass)
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -163,7 +170,15 @@ class PersonClass {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log("Hey there 👋");
+    console.log(this);
+  }
 }
+
+PersonClass.hey();
 
 const jessica = new PersonClass(`Jessica Davis`, 1987);
 console.log(jessica);
