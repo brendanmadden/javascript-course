@@ -177,7 +177,6 @@ class PersonClass {
     console.log(this);
   }
 }
-
 PersonClass.hey();
 
 const jessica = new PersonClass(`Jessica Davis`, 1987);
