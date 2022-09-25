@@ -129,7 +129,6 @@ console.log(car1.brake);
 // Test data:
 // § Data car 1: 'BMW' going at 120 km/h
 // § Data car 2: 'Mercedes' going at 95 km/h
-*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ES6 Classes /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -240,3 +239,104 @@ bmw.newCar();
 mercedes.newCar();
 audi.newCar();
 rolls.newCar();
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Object.create ///////////////////////////////////////////////////////////////////////////////////////////////////
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+sarah.calcAge();
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Coding Challenge #2 /////////////////////////////////////////////////////////////////////////////////////////////
+
+class CarClass {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`New speed is ${this.speed}`);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`New speed is ${this.speed}`);
+  }
+
+  get speedUS() {
+    this.speed /= 1.6;
+    console.log(`US speed is ${this.speed}mi/h`);
+    return this.speed;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+    return this.speed;
+  }
+}
+
+const test = new CarClass(`test`, 100);
+console.log(test);
+test.accelerate();
+console.log(test);
+test.brake();
+console.log(test);
+test.speedUS;
+test.speedUS = 50;
+console.log(test);
+
+// class CarCl {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = speed;
+//   }
+
+//   accelerate() {
+//     this.speed += 10;
+//     console.log(`${this.make} is going at ${this.speed} km/h`);
+//   }
+
+//   brake() {
+//     this.speed -= 5;
+//     console.log(`${this.make} is going at ${this.speed} km/h`);
+//   }
+
+//   get speedUS() {
+//     return this.speed / 1.6;
+//   }
+
+//   set speedUS(speed) {
+//     this.speed = speed * 1.6;
+//   }
+// }
+
+// const ford = new CarCl("Ford", 120);
+// console.log(ford.speedUS);
+// ford.accelerate();
+// ford.accelerate();
+// ford.brake();
+// ford.speedUS = 50;
+// console.log(ford);
+*/
