@@ -561,6 +561,7 @@ class Account {
     console.log(`Thanks for opening an account, ${owner}!`);
   }
 
+  // 3) Public Methods
   // Public Interface
   getMovements() {
     return this.#movements;
@@ -568,22 +569,31 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
-  }
-
-  // Protected Method
-  _approveLoan(val) {
-    return true;
+    return this;
   }
 
   requestLoan(val) {
+    // if (this.#approveLoan(val)) {
     if (this._approveLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved`);
+      return this;
     }
+  }
+
+  static helper() {
+    console.log(`Helper :)`);
+  }
+
+  // 4) Private Methods
+  // Protected Method (Private method not yet working with browsers)
+  _approveLoan(val) {
+    return true;
   }
 }
 
@@ -596,5 +606,13 @@ console.log(acc1);
 
 console.log(acc1.getMovements());
 
+Account.helper();
+
 // console.log(#movements) // Throws an error - Private Field - not allowed outside class bodies
 // console.log(#pin) // Throws an error - Private Field - not allowed outside class bodies
+// console.log(#approveLoan(100)) // Throws an error - Private Method - not allowed outside class bodies
+
+// Chaining
+
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
