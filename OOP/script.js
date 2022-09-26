@@ -542,31 +542,45 @@ jay.calcAge();
 // (there is also the static version)
 
 class Account {
+  // 1) Public Fields (on the instances)
+  locale = navigator.language;
+
+  // 2) Private Fields (on the instances, not on the prototype)
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-    this.locale = navigator.language;
+
+    // Protected Property
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`Thanks for opening an account, ${owner}!`);
   }
 
   // Public Interface
+  getMovements() {
+    return this.#movements;
+  }
+
   deposit(val) {
-    this.movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
     this.deposit(-val);
   }
 
-  approveLoan(val) {
+  // Protected Method
+  _approveLoan(val) {
     return true;
   }
 
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this._approveLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved`);
     }
@@ -579,3 +593,8 @@ acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
 console.log(acc1);
+
+console.log(acc1.getMovements());
+
+// console.log(#movements) // Throws an error - Private Field - not allowed outside class bodies
+// console.log(#pin) // Throws an error - Private Field - not allowed outside class bodies
