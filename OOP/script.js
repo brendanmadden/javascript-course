@@ -529,7 +529,6 @@ jay.init("Jay", 2010, "Computer Science");
 jay.introduce();
 jay.calcAge();
 
-*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Encapsulation: Protected Properties and Methods /////////////////////////////////////////////////////////////////
@@ -616,3 +615,74 @@ Account.helper();
 
 acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
 console.log(acc1.getMovements());
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Coding Challenge #4 /////////////////////////////////////////////////////////////////////////////////////////////
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `The ${this.make} is going at ${this.speed}km/h and has a charge of ${
+        this.#charge
+      }%`
+    );
+    return this;
+  }
+}
+
+const tesla = new EVCl(`Tesla`, 160, 50);
+
+// console.log(tesla);
+// tesla.accelerate();
+// tesla.brake();
+// tesla.chargeBattery(100);
+// console.log(tesla);
+
+tesla.accelerate().brake().chargeBattery(100).accelerate().accelerate().brake();
+console.log(tesla);
+console.log(tesla.speedUS);
+tesla.speedUS = 100;
+console.log(tesla);
+
+*/
