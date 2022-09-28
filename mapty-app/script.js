@@ -48,3 +48,5 @@ if (navigator.geolocation)
       alert(`Could not get your position`);
     }
   );
+
+const test = 12;
