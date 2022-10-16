@@ -2,9 +2,6 @@
 
 // Map API: https://leafletjs.com/
 
-// prettier-ignore
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
 class Workout {
   date = new Date();
   id = (Date.now() + ``).slice(-10); // In real world applications, we wouldn't normally create id's ourselves. We would use a library
@@ -14,9 +11,15 @@ class Workout {
     this.distance = distance; // in km
     this.duration = duration; // in minutes
   }
+
+  _setDescription() {
+    // prettier-ignore
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  }
 }
 
 class Running extends Workout {
+  type = `running`;
   constructor(coords, distance, duration, cadence) {
     super(coords, distance, duration);
     this.cadence = cadence;
@@ -31,6 +34,7 @@ class Running extends Workout {
 }
 
 class Cycling extends Workout {
+  type = `cycling`;
   constructor(coords, distance, duration, elevationGain) {
     super(coords, distance, duration);
     this.elevationGain = elevationGain;
@@ -61,6 +65,7 @@ const inputElevation = document.querySelector(".form__input--elevation");
 class App {
   #map;
   #mapEvent;
+  #workouts = [];
 
   constructor() {
     this._getPosition();
@@ -120,6 +125,8 @@ class App {
     const type = inputType.value;
     const distance = +inputDistance.value; // the + converts this to a number
     const duration = +inputDuration.value;
+    const { lat, lng } = this.#mapEvent.latlng;
+    let workout;
 
     // Check if data is valid
 
@@ -135,6 +142,8 @@ class App {
         !allPositive(distance, duration, cadence)
       )
         return alert(`Inputs have to be positive numbers!`);
+
+      workout = new Running([lat, lng], distance, duration, cadence);
     }
 
     // If workout is cycling, create cycling object
@@ -146,29 +155,19 @@ class App {
         !allPositive(distance, duration)
       )
         return alert(`Inputs have to be positive numbers!`);
+
+      workout = new Cycling([lat, lng], distance, duration, elevation);
     }
 
     // Add new object to workout array
+    this.#workouts.push(workout);
+    console.log(workout);
 
     // Render workout on map as marker
-    const { lat, lng } = this.#mapEvent.latlng;
-    L.marker([lat, lng])
-      .addTo(this.#map)
-      .bindPopup(
-        L.popup({
-          maxWidth: 250,
-          minWidth: 100,
-          autoClose: false,
-          closeOnClick: false,
-          className: `running-popup`,
-        })
-      )
-      .setPopupContent(`Workout`)
-      .openPopup();
-
-    inputDistance.focus();
+    this._renderWorkoutMarker(workout);
 
     // Render workout on the list
+    this._renderWorkout(workout);
 
     // Hide the form and clear input fields
     inputDistance.value =
@@ -176,6 +175,43 @@ class App {
       inputCadence.value =
       inputElevation.value =
         ``;
+  }
+
+  _renderWorkoutMarker(workout) {
+    L.marker(workout.coords)
+      .addTo(this.#map)
+      .bindPopup(
+        L.popup({
+          maxWidth: 250,
+          minWidth: 100,
+          autoClose: false,
+          closeOnClick: false,
+          className: `${workout.type}-popup`,
+        })
+      )
+      .setPopupContent(`workout`)
+      .openPopup();
+
+    inputDistance.focus();
+  }
+
+  _renderWorkout(workout) {
+    const html = `
+        <li class="workout workout--${workout.name}" data-id="${workout.id}">
+          <h2 class="workout__title">Running on April 14</h2>
+          <div class="workout__details">
+            <span class="workout__icon">${
+              workout.name === `running` ? `🏃‍♂️` : `🚴‍♀️`
+            }</span>
+            <span class="workout__value">${workout.distance}</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">${workout.duration}</span>
+            <span class="workout__unit">min</span>
+          </div>
+    `;
   }
 }
 
