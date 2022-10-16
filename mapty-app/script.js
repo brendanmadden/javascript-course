@@ -45,6 +45,14 @@ if (navigator.geolocation)
 
 form.addEventListener(`submit`, function (e) {
   e.preventDefault();
+
+  // Clear Input Fields
+  inputDistance.value =
+    inputDuration.value =
+    inputCadence.value =
+    inputElevation.value =
+      ``;
+
   // Display Marker
   const { lat, lng } = mapEvent.latlng;
   L.marker([lat, lng])
@@ -60,4 +68,11 @@ form.addEventListener(`submit`, function (e) {
     )
     .setPopupContent(`Workout`)
     .openPopup();
+
+  inputDistance.focus();
+});
+
+inputType.addEventListener(`change`, function () {
+  inputElevation.closest(`.form__row`).classList.toggle(`form__row--hidden`);
+  inputCadence.closest(`.form__row`).classList.toggle(`form__row--hidden`);
 });
