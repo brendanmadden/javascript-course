@@ -93,3 +93,28 @@ const getCountryAndNeighbour = function (country) {
 
 // getCountryAndNeighbour(`portugal`);
 getCountryAndNeighbour(`canada`);
+
+//quick random destructuring practice :)
+// const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// const [a, b, c] = arr1;
+
+// console.log(a, b, c);
+
+// const obj1 = {
+//   key1: 10,
+//   key2: 20,
+//   key3: 30,
+//   key4: 40,
+// };
+
+// const { key1, key2, key3, key4 } = obj1;
+
+// console.log(key1, key2, key3, key4);
+
+// const obj = { a: 1, b: 2 };
+// const { y, z } = obj;
+// // is equivalent to:
+// // const a = obj.a;
+// // const b = obj.b;
+// console.log(y, z);
