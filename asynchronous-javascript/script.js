@@ -62,6 +62,7 @@ const renderCountry = function (data, className = ``) {
   countriesContainer.style.opacity = 1;
 };
 
+/*
 const getCountryAndNeighbour = function (country) {
   // AJAX Call Country 1
   const request = new XMLHttpRequest();
@@ -93,6 +94,38 @@ const getCountryAndNeighbour = function (country) {
 
 // getCountryAndNeighbour(`portugal`);
 getCountryAndNeighbour(`canada`);
+*/
+
+// Old way of making an AJAX Call
+// const request = new XMLHttpRequest();
+// request.open(`GET`, `https://restcountries.com/v2/name/${country}`);
+// request.send();
+
+// New way with Fetch
+// const request = fetch(`https://restcountries.com/v2/name/portugal`);
+// console.log(request);
+
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       renderCountry(data[0]);
+//     });
+// };
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then((response) => response.json())
+    .then((data) => renderCountry(data[0]));
+};
+
+getCountryData(`portugal`);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //quick random destructuring practice :)
 // const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
