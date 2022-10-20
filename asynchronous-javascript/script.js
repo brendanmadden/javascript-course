@@ -273,6 +273,7 @@ Promise.resolve(`Resolved promise 2`).then((response) => {
 console.log(`Test End`);
 */
 
+/*
 const lotteryPromise = new Promise(function (resolve, reject) {
   console.log(`Lottery Draw is Underway!`);
   setTimeout(function () {
@@ -287,3 +288,52 @@ const lotteryPromise = new Promise(function (resolve, reject) {
 lotteryPromise
   .then((res) => console.log(res))
   .catch((err) => console.error(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log(`I waited for two seconds`);
+    return wait(1);
+  })
+  .then(() => console.log(`I waited for 1 second`));
+
+//Callback Hell
+// setTimeout(() => {
+//   console.log(`1 Second`);
+//   setTimeout(() => {
+//     console.log(`2 Seconds`);
+//     setTimeout(() => {
+//       console.log(`3 Seconds`);
+//       setTimeout(() => {
+//         console.log(`4 Seconds`);
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+
+wait(1)
+  .then(() => {
+    console.log(`1 second`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`2 seconds`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`3 seconds`);
+    return wait(1);
+  })
+  .then(() => {
+    console.log(`4 seconds`);
+  });
+
+Promise.resolve(`abc`).then((x) => console.log(x));
+Promise.reject(new Error(`Problem!`)).catch((x) => console.error(x));
+*/
