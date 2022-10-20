@@ -220,3 +220,27 @@ getCountryData(`australia`);
 // // const a = obj.a;
 // // const b = obj.b;
 // console.log(y, z);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Coding Challenge #1
+
+// geocode API https://geocode.xyz/api
+
+const whereAmI = function (lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((response) => {
+      console.log(response);
+
+      if (!response.ok)
+        throw new Error(
+          `Country not found - don't refresh so fast! (${response.status})`
+        );
+
+      return response.json();
+    })
+    .then((data) => console.log(`You are in ${data.city}, ${data.country}`))
+    .catch((err) => console.error(`${err} 💥💥💥`));
+};
+whereAmI(52.508, 13.381);
+whereAmI(19.037, 72.873);
+whereAmI(-33.933, 18.474);
