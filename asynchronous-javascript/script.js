@@ -221,6 +221,7 @@ const getJSON = function (url, errorMsg = `Something went wrong`) {
 // // const b = obj.b;
 // console.log(y, z);
 
+/*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #1
 
@@ -258,3 +259,31 @@ const whereAmI = function (lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
+*/
+
+/*
+console.log(`Test Start`);
+setTimeout(() => console.log(`0 Second Timer`), 0);
+Promise.resolve(`Resolved promise 1`).then((response) => console.log(response));
+Promise.resolve(`Resolved promise 2`).then((response) => {
+  for (let i = 0; i < 500; i++) {
+    console.log(response);
+  }
+});
+console.log(`Test End`);
+*/
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log(`Lottery Draw is Underway!`);
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve(`You WIN! 💸`);
+    } else {
+      reject(new Error(`You lost 🥺😢`));
+    }
+  }, 2000);
+});
+
+lotteryPromise
+  .then((res) => console.log(res))
+  .catch((err) => console.error(err));
