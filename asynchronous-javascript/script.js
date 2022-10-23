@@ -23,7 +23,7 @@ const renderCountry = function (data, className = ``) {
         </article>
     `;
   countriesContainer.insertAdjacentHTML(`beforeend`, html);
-  //   countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 const renderError = function (msg) {
@@ -446,3 +446,16 @@ createImage(`img/img-1.jpg`)
   })
   .catch((err) => console.error(err));
 */
+
+const whereAmI = async function (country) {
+  // fetch(`https://restcountries.com/v2/name/${country}).then(res => console.log(res));
+
+  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+  console.log(res);
+
+  const data = await res.json();
+  console.log(data);
+  renderCountry(data[0]);
+};
+whereAmI(`canada`);
+console.log(`First`);
