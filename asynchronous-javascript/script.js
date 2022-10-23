@@ -387,6 +387,7 @@ const whereAmI = function () {
 btn.addEventListener(`click`, whereAmI);
 */
 
+/*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #2
 const imagesElement = document.querySelector(`.images`);
@@ -444,3 +445,4 @@ createImage(`img/img-1.jpg`)
     currentImg.style.display = `none`;
   })
   .catch((err) => console.error(err));
+*/
