@@ -339,6 +339,9 @@ Promise.reject(new Error(`Problem!`)).catch((x) => console.error(x));
 */
 
 /*
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Promisifying the Geolocation API
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     // navigator.geolocation.getCurrentPosition(
@@ -447,15 +450,37 @@ createImage(`img/img-1.jpg`)
   .catch((err) => console.error(err));
 */
 
-const whereAmI = async function (country) {
-  // fetch(`https://restcountries.com/v2/name/${country}).then(res => console.log(res));
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve(position),
+      (err) => reject(err)
+    );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
 
-  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+// fetch(`https://restcountries.com/v2/name/${country}).then(res => console.log(res));
+
+const whereAmI = async function () {
+  // Geolocation
+  const pos = await getPosition();
+  const { latitude: lat, longitude: lng } = pos.coords;
+
+  // Reverse Geocoding
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const dataGeo = await resGeo.json();
+  console.log(dataGeo);
+
+  // Country Data
+  const res = await fetch(
+    `https://restcountries.com/v2/name/${dataGeo.country}`
+  );
   console.log(res);
 
   const data = await res.json();
   console.log(data);
   renderCountry(data[0]);
 };
-whereAmI(`canada`);
+whereAmI();
 console.log(`First`);
