@@ -626,6 +626,11 @@ const createImage = function (imgPath) {
   });
 };
 
+const loadNpause = async function () {
+  try {
+  } catch {}
+};
+
 // let currentImg;
 
 // createImage(`img/img-1.jpg`)
