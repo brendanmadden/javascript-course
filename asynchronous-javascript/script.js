@@ -626,26 +626,25 @@ const createImage = function (imgPath) {
   });
 };
 
-let currentImg;
 const loadNpause = async function () {
   try {
     // Image 1
-    currentImg = await createImage(`img/img-1.jpg`);
+    let img = await createImage(`img/img-1.jpg`);
     console.log(`Image 1 Loaded`);
     await wait(2);
-    currentImg.style.display = `none`;
+    img.style.display = `none`;
 
     // Image 2
-    currentImg = await createImage(`img/img-2.jpg`);
+    img = await createImage(`img/img-2.jpg`);
     console.log(`Image 2 Loaded`);
     await wait(2);
-    currentImg.style.display = `none`;
+    img.style.display = `none`;
 
     // Image 3
-    currentImg = await createImage(`img/img-3.jpg`);
+    img = await createImage(`img/img-3.jpg`);
     console.log(`Image 3 Loaded`);
     await wait(2);
-    currentImg.style.display = `none`;
+    img.style.display = `none`;
   } catch (err) {
     console.error(err);
   }
@@ -658,7 +657,21 @@ const loadAll = async function (imgArr) {
     console.log(imgs);
     imgs.forEach((img) => img.classList.add(`parallel`));
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 loadAll(["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"]);
+
+// Could also do it like this (Jonas' solution (I like mine (above) better))
+// const loadAll2 = async function (imgArr) {
+//   try {
+//     const imgs = imgArr.map(async (img) => await createImage(img));
+//     console.log(imgs);
+//     const imgsElArr = await Promise.all(imgs);
+//     console.log(imgsElArr);
+//     imgsElArr.forEach((img) => img.classList.add(`parallel`));
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+// loadAll2(["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"]);
