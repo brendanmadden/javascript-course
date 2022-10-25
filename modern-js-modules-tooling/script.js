@@ -1,9 +1,17 @@
 // Importing Module
 // All modules are executed in strict mode by default
-import { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
-("./shoppingCart.js");
+// import { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
+// addToCart(`bread`, 5);
+// console.log(price, tq);
 
 console.log(`Importing Module`);
 
-addToCart(`bread`, 5);
-console.log(price, tq);
+// import shoppingCart, * as ShoppingCart from "./shoppingCart.js";
+// ShoppingCart.addToCart(`bread`, 5);
+// console.log(ShoppingCart.totalPrice);
+
+// import add, { addToCart, totalPrice as price, tq } from "./shoppingCart.js"; this can be done but is typically not done in practice - avoid it
+// console.log(price);
+
+import add from "./shoppingCart.js";
+add(`pizza`, 2);
